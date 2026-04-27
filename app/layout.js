@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={` h-full antialiased`}
+      className={`h-full antialiased`}
     >
       <body className={`${fontIndustry.variable} *:font-(family-name:--font-main) min-h-full flex flex-col`}>
         {children}

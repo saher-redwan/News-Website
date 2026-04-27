@@ -13,11 +13,11 @@ import {
 import NavSidebar from './NavSidebar';
 
 export default function Navbar() {
-
+    
     const links = ["breaking", "politics", "sport", "coins", "Gas", "IT", "transport", "more"]
 
     return (
-        <div className='bg-black pt-[14] pb-[6.5]'>
+        <div className='bg-black pt-[14] pb-[6.5] sticky top-[-14px] z-10'>
             <nav className='bg-(--main-color) text-white h-[38] flex justify-between items-center'>
 
                 {/* logo */}
@@ -58,8 +58,8 @@ export default function Navbar() {
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button className="bg-transparent flex gap-1 items-center h-[40] shadow-[0]! border-0">
-                                <Image src={"/images/world.png"} alt='' width={0} height={0} className='invert-100 w-[23] h-[23]' />
-                                <Image src={"/images/down-arrow.png"} alt='' width={0} height={0} className='invert-100 w-[12] h-[12] -mb-0.5' />
+                                <Image src={"/images/world.png"} alt='' width={200} height={200} className='invert-100 w-[23] h-[23]' />
+                                <Image src={"/images/down-arrow.png"} alt='' width={200} height={200} className='invert-100 w-[12] h-[12] -mb-0.5' />
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent>

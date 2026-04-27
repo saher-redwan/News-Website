@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --balck: #171717;
+  --black: #171717;
   --main-color: #af231c;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -184,8 +184,6 @@ nav ul a {
 
 }
 
-
-
 /********************* custom classes *****************/
 body {
   padding-bottom: 50rem;
@@ -201,5 +199,25 @@ body {
 @media (min-width: 768px) {
   .container {
     max-width: unset;
+  }
+}
+
+
+.shorts-section {
+  *[aria-roledescription="carousel"] {
+
+    button[data-slot='carousel-previous'],
+    button[data-slot='carousel-next'] {
+      width: 35px;
+      transform: scaleY(1.225)
+    }
+
+    button[data-slot='carousel-previous'] {
+      left: 0;
+    }
+
+    button[data-slot='carousel-next'] {
+      right: 0;
+    }
   }
 }

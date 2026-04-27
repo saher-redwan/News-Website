@@ -2,12 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-export default function BigNewsCard({ imgWidth = "100%", className = "text-center" }) {
+export default function BigNewsCard({ imgLink, imgWidth = "100%", className = "text-center" }) {
 
   return (
     <div className={className}>
       <Link href={"#"} className='hover:[&_h3]:text-(--main-color)' >
-        <Image src="/images/small-card-img.webp" alt='' width={300} height={300} className='aspect-video' style={{ width: imgWidth }} />
+        <Image src={imgLink} alt='' width={300} height={300} className='aspect-video' style={{ width: imgWidth }} />
         <div className='container'>
           <h3 className='font-bold mt-1.5 line-clamp-3 text-[1.625rem] leading-[1.3em]'>
             Best- and Worst-Case Scenarios for Every Team in the NFL Draft

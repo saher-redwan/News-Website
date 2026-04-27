@@ -5,25 +5,21 @@ import BigNewsCard from '../shared/BigNewsCard';
 import SmallNewsCard from '../shared/SmallNewsCard';
 
 export default function Hero() {
-  // 186
-  // 253
-
-  // className = "text-center"
 
   return (
     <div >
 
 
       <div className='flex flex-col gap-y-5 gap-x-4 md:flex-row md:md-container items-start '>
-        {/* "100%" */}
+
         <div className='md:w-1/2 md:order-2'>
-          <BigNewsCard />
+          <BigNewsCard imgLink="/images/big-card-img.webp"/>
         </div>
 
-        {/* 160 */}
+
         <div className='container flex gap-4 *:flex-1 md:flex-1 md:order-1 md:flex-col'>
-          <SmallNewsCard />
-          <SmallNewsCard />
+          <SmallNewsCard imgLink="/images/small-card-img.webp"/>
+          <SmallNewsCard imgLink="/images/small-card-img.webp"/>
         </div>
 
         <div className='container flex-1 md:order-3'>
