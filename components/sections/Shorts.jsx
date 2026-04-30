@@ -60,7 +60,7 @@ export default function Shorts() {
 
                                 {/* SI Logo */}
                                 <div className="absolute left-2 top-1 opacity-[0.7]">
-                                    <Image src="/images/logo.webp" alt="" width={200} height={200} className="w-[45] h-[45]" />
+                                    <Image src="/images/logo.avif" alt="" width={200} height={200} className="w-[45] h-[45]" />
                                 </div>
 
                                 {/* title */}

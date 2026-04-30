@@ -13,17 +13,17 @@ import {
 import NavSidebar from './NavSidebar';
 
 export default function Navbar() {
-    
+
     const links = ["breaking", "politics", "sport", "coins", "Gas", "IT", "transport", "more"]
 
     return (
-        <div className='bg-black pt-[14] pb-[6.5] sticky top-[-14px] z-10'>
+        <div className='bg-[#212121] pt-[14] pb-[6.5] sticky top-[-14px] z-10'>
             <nav className='bg-(--main-color) text-white h-[38] flex justify-between items-center'>
 
                 {/* logo */}
                 <Link href={"#"} className='relative w-[65] ml-4 flex-1'>
                     <Image
-                        src="/images/logo.webp"
+                        src="/images/logo.avif"
                         alt="news image"
                         width={65}
                         height={65}

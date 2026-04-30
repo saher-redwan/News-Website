@@ -8,7 +8,7 @@ export default function SectionTitle({ title, linkText, link, className }) {
                 <div className='flex justify-between items-center'>
                     <h2 className='text-[18px] font-bold uppercase'>{title}</h2>
                     {link &&
-                        <Link href="#" className='text-[14px] text-[#006fd2] font-medium hover:underline'>
+                        <Link href="#" className='uppercase text-[14px] text-[#006fd2] font-medium hover:underline'>
                             {linkText}
                         </Link>
                     }
