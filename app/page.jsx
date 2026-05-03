@@ -9,11 +9,12 @@ import SectionTitle from "@/components/shared/SectionTitle";
 
 export default function Home() {
 
-
   return (
     <div>
       <Navbar />
+
       <Ads />
+
       <Hero />
 
       <div className="bg-[#f1f0f4] pt-5 pb-10">

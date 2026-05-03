@@ -292,3 +292,18 @@ nav ul a {
 .animate-swipe-left-hint {
   animation: swipe-left-hint 1.5s ease-in-out infinite
 }
+
+/* some custom animation */
+@keyframes scale-in-opacity {
+  0% {
+    /* scale: 0.97; */
+    scale: 1.11;
+    opacity: 0.7;
+  }
+}
+
+@keyframes scale-out-opacity {
+  0% {
+    scale: 0.925
+  }
+}
