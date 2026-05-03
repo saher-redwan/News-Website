@@ -186,7 +186,7 @@ export default function Shorts() {
     return (
         <>
             <div className="md:md-container shorts-section">
-                <Carousel className="w-full container [&_img]:select-none" opts={{ align: "start" }} >
+                <Carousel className="w-full container *:select-none" opts={{ align: "start" }} >
                     <CarouselContent>
                         {shorts.map((item, index) => (
                             <CarouselItem key={item.id} className="aspect-[6.8/12] basis-[calc(194px+16px)] md:basis-[calc(230px+16px)]">
@@ -235,7 +235,8 @@ export default function Shorts() {
 
             {/* Shorts Viewer */}
             {open && (
-                <div className="fixed inset-0 z-9999 bg-black animate-[scale-in-opacity_0.2s_ease-out_forwards]">
+                <div
+                    className="fixed inset-0 z-9999 bg-black animate-[scale-in-opacity_0.2s_ease-out_forwards]">
                     <button
                         onClick={closeShort}
                         className="fixed right-4 top-4 z-50 flex size-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md hover:bg-white/20 md:right-[1.6rem]"
@@ -245,6 +246,7 @@ export default function Shorts() {
 
                     <div
                         id="shorts-viewer"
+
                         className="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth"
                     >
                         {shorts.map((item, index) => (
@@ -252,10 +254,18 @@ export default function Shorts() {
                                 key={item.id}
                                 id={`short-${index}`}
                                 data-index={index}
+                                onClick={(e) => {
+                                    if (e.target === e.currentTarget) {
+                                        closeShort();
+                                    }
+                                }}
                                 className="short-item relative flex h-screen snap-start items-center justify-center"
                             >
                                 <div
-                                    onClick={() => toggleVideo(index)}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        toggleVideo(index);
+                                    }}
                                     className="relative h-full w-full max-w-[430px] overflow-hidden bg-black sm:h-[92vh] sm:rounded-[28px]"
                                     style={{
                                         cursor: videoRefs.current[index]?.paused
