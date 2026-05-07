@@ -25,14 +25,14 @@ export default function Navbar() {
                     <Image
                         src="/images/logo.avif"
                         alt="news image"
-                        width={65}
-                        height={65}
+                        width={350}
+                        height={350}
                         loading='eager'
                         className='absolute top-1/2 left-0 -translate-y-1/2 object-cover scale-[1.25] h-auto w-[65]'
                     />
                 </Link>
 
-                {/* links */}
+                {/* links (md or above) */}
                 <div className='hidden md:block'>
                     <ul className='text-[1.125rem] uppercase flex items-center gap-1.5 [&_a]:p-[9px] [&_a]:block'>
                         {links.map(link =>

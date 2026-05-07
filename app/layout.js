@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`h-full antialiased`}
     >
-      <body className={`${fontIndustry.variable} *:font-(family-name:--font-main) min-h-full flex flex-col`}>
+      <body className={`${fontIndustry.variable} *:font-(family-name:--font-main) min-h-full flex flex-col capitalize`}>
         {children}
       </body>
     </html>

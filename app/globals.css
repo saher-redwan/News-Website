@@ -179,7 +179,7 @@ hr {
   grid-template-columns: repeat(6, auto);
 }
 
-@utility scrollbar-hide {
+@utility scrollbar-hide--HorizontalNewsCollection {
   &::-webkit-scrollbar {
     height: 7px;
   }
@@ -189,7 +189,7 @@ hr {
   }
 }
 
-@utility scrollbar-show-on-hover-md {
+@utility scrollbar-show-on-hover-md--HorizontalNewsCollection {
   @media (min-width: 768px) {
     &:hover::-webkit-scrollbar {
       height: 7px
@@ -206,6 +206,15 @@ hr {
   }
 }
 
+/* general use */
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none
+  }
+}
 
 
 nav ul a {
@@ -238,7 +247,8 @@ nav ul a {
 
 /********************* custom classes *****************/
 .container {
-  max-width: calc(100% - 46px);
+  /* max-width: calc(100% - 46px); */
+  max-width: calc(100% - 35px);
   margin-left: auto;
   margin-right: auto;
 }

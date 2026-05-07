@@ -17,23 +17,32 @@ export default function Footer() {
 
                 <div className="grid grid-cols-auto-2 md:grid-cols-auto-5 items-center gap-y-3 gap-x-12 mb-8 text-[15px] font-medium md:max-w-[55rem] mx-auto md:gap-x-7 md:items-start *:w-fit">
                     <span>
-                        <Link href="#" className="hover:underline">Privacy Policy</Link></span>
+                        <Link href="#" className="hover:underline">Privacy Policy</Link>
+                    </span>
                     <span>
-                        <Link href="#" className="hover:underline">Cookie Policy</Link></span>
+                        <Link href="#" className="hover:underline">Cookie Policy</Link>
+                    </span>
                     <span>
-                        <Link href="#" className="hover:underline">Takedown Policy</Link></span>
+                        <Link href="#" className="hover:underline">Takedown Policy</Link>
+                    </span>
                     <span>
-                        <Link href="#" className="hover:underline">Terms and Conditions</Link></span>
+                        <Link href="#" className="hover:underline">Terms and Conditions</Link>
+                    </span>
                     <span>
-                        <Link href="#" className="hover:underline">SI Accessibility Statement</Link></span>
+                        <Link href="#" className="hover:underline">SI Accessibility Statement</Link>
+                    </span>
                     <span>
-                        <Link href="#" className="hover:underline">Sitemap</Link></span>
+                        <Link href="#" className="hover:underline">Sitemap</Link>
+                    </span>
                     <span>
-                        <Link href="#" className="hover:underline">A-Z Index</Link></span>
+                        <Link href="#" className="hover:underline">A-Z Index</Link>
+                    </span>
                     <span>
-                        <Link href="#" className="hover:underline">FAQ</Link></span>
+                        <Link href="#" className="hover:underline">FAQ</Link>
+                    </span>
                     <span>
-                        <Link href="#" className="hover:underline">Cookies Settings</Link></span>
+                        <Link href="#" className="hover:underline">Cookies Settings</Link>
+                    </span>
                 </div>
 
                 <div className="border-t border-[#cc0000] mb-6"></div>

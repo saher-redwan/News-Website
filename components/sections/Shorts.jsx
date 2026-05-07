@@ -12,60 +12,11 @@ import Image from "next/image";
 import VideoIcon from '../svgs/VideoIcon';
 import { Heart, MessageCircle, Play, Share2, Volume2, VolumeX, X } from 'lucide-react';
 
-
-const shorts = [
-    {
-        id: 1,
-        title: 'UFC Media "First Person" Trend',
-        thumbnail: "/shorts/thumb-1.jpeg",
-        video: "/shorts/video-1.mp4",
-    },
-    {
-        id: 2,
-        title: "Booker T Questions if OBA FEMI is Ready fo...",
-        thumbnail: "/shorts/thumb-2.jpeg",
-        video: "/shorts/video-2.mp4",
-    },
-    {
-        id: 3,
-        title: "The Funkmaster FIRED UP After Making Weight",
-        thumbnail: "/shorts/thumb-3.jpeg",
-        video: "/shorts/video-3.mp4",
-    },
-    {
-        id: 4,
-        title: "RAMS are Ideal Landing Sport for TY SIMPSON...",
-        thumbnail: "/shorts/thumb-4.jpeg",
-        video: "/shorts/video-4.mp4",
-    },
-    {
-        id: 5,
-        title: "Don't sleep on Tyson this...",
-        thumbnail: "/shorts/thumb-5.jpeg",
-        video: "/shorts/video-5.mp4",
-    },
-    {
-        id: 6,
-        title: "Don't sleep on Tyson this...",
-        thumbnail: "/shorts/thumb-6.jpeg",
-        video: "/shorts/video-6.mp4",
-    },
-    {
-        id: 7,
-        title: "Don't sleep on Tyson this...",
-        thumbnail: "/shorts/thumb-7.jpeg",
-        video: "/shorts/video-7.mp4",
-    },
-];
-
-export default function Shorts() {
-
-
+export default function Shorts({ data }) {
     const [open, setOpen] = useState(false);
     const [startIndex, setStartIndex] = useState(0);
 
-    const [muted, setMuted] = useState(true);
-    const mutedRef = useRef(true);
+    const [muted, setMuted] = useState(false);
 
     const [pausedVideos, setPausedVideos] = useState({});
     const pausedVideosRef = useRef({});
@@ -89,15 +40,16 @@ export default function Shorts() {
     function toggleSound(e) {
         e.stopPropagation();
 
-        const nextMuted = !mutedRef.current;
+        setMuted((prevMuted) => {
+            const nextMuted = !prevMuted;
 
-        mutedRef.current = nextMuted;
-        setMuted(nextMuted);
+            videoRefs.current.forEach((video) => {
+                if (video) {
+                    video.muted = nextMuted;
+                }
+            });
 
-        videoRefs.current.forEach((video) => {
-            if (video) {
-                video.muted = nextMuted;
-            }
+            return nextMuted;
         });
     }
 
@@ -139,7 +91,6 @@ export default function Shorts() {
                     behavior: "instant",
                 });
             }
-            console.log("from setTimeOut");
 
         }, 50);
 
@@ -180,6 +131,13 @@ export default function Shorts() {
         return () => observer.disconnect();
     }, [open]);
 
+    useEffect(() => {
+        open ?
+            document.body.style.overflow = "hidden"
+            :
+            document.body.style.overflow = "auto"
+    }, [open])
+
 
 
 
@@ -188,14 +146,14 @@ export default function Shorts() {
             <div className="md:md-container shorts-section">
                 <Carousel className="w-full container *:select-none" opts={{ align: "start" }} >
                     <CarouselContent>
-                        {shorts.map((item, index) => (
+                        {data?.items.map((item, index) => (
                             <CarouselItem key={item.id} className="aspect-[6.8/12] basis-[calc(194px+16px)] md:basis-[calc(230px+16px)]">
                                 <article
                                     onClick={() => openShort(index)}
                                     className="relative overflow-hidden h-full rounded-[18px] bg-neutral-900 hover:scale-[0.99] duration-[0.25s]"
                                 >
                                     <Image
-                                        src={item.thumbnail}
+                                        src={item.image}
                                         alt={item.title}
                                         className="h-full w-full object-cover"
                                         width={500}
@@ -245,11 +203,10 @@ export default function Shorts() {
                     </button>
 
                     <div
-                        id="shorts-viewer"
-
-                        className="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth"
+                        id={"shorts-viewer"}
+                        className="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth scrollbar-hide"
                     >
-                        {shorts.map((item, index) => (
+                        {data.items.map((item, index) => (
                             <div
                                 key={item.id}
                                 id={`short-${index}`}
@@ -275,13 +232,12 @@ export default function Shorts() {
                                     <video
                                         ref={(el) => (videoRefs.current[index] = el)}
                                         src={item.video}
-                                        className="h-full w-full object-cover cursor-default"
-                                        loop
-                                        muted={muted}
-                                        playsInline
+                                        loop autoPlay muted={muted} playsInline preload="auto"
+                                        width={800} height={800}
+                                        className="h-full w-full object-cover cursor-default bg-gray-900"
                                     />
 
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-black/20" />
 
                                     {pausedVideos[index] && (
                                         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
