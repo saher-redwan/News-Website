@@ -7,7 +7,7 @@ export default function SmallNewsCard({ imgLink, imgWidth = "100%", mainLinkClas
   return (
     <div>
       <Link href={"#"} className={cn('hover:[&_h3]:text-(--main-color)', mainLinkClass)}>
-        <Image src={imgLink} alt='' width={300} height={300} className='aspect-video' style={{ width: imgWidth }} />
+        <Image src={imgLink} alt='' width={300} height={300} className='aspect-video image-skeleton' style={{ width: imgWidth }} />
         <div>
           <h3 className='font-medium mt-1.5 line-clamp-3 md:font-bold leading-[1.4]'>
             {text}
