@@ -1,9 +1,10 @@
 # News Website
 
-A modern responsive news website built with Next.js, Tailwind CSS, and shadcn/ui.
+(It's a modified version of the website "https://www.si.com/")
+A modern responsive news website built with Next.js, Tailwind CSS, and shadcn/ui. (+ other techs)
 
 ## Live Demo
-https://your-site-url.com
+https://news-website-eight-gilt.vercel.app/
 
 ## Tech Stack
 
@@ -14,8 +15,8 @@ https://your-site-url.com
 
 ## Features
 
-- ...
-
-## Future Improvements
-
-- ...
+- Presenting the news in a modern and formal way.
+- Providing a shorts videos section.
+- Responsive to all screens (mobile, tablet and laptop).
+- Precise design and enhanced, robust UX-UI.
+- Developed in a way that is understandable and easy to modify in the future (excellently maintainable).
