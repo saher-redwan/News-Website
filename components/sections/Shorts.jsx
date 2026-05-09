@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import VideoIcon from '../svgs/VideoIcon';
 import { Heart, MessageCircle, Play, Share2, Volume2, VolumeX, X } from 'lucide-react';
+import ImageWrapper from '../shared/ImageWrapper';
 
 export default function Shorts({ data }) {
     const [open, setOpen] = useState(false);
@@ -152,10 +153,10 @@ export default function Shorts({ data }) {
                                     onClick={() => openShort(index)}
                                     className="relative overflow-hidden h-full rounded-[18px] bg-neutral-900 hover:scale-[0.99] duration-[0.25s]"
                                 >
-                                    <Image
+                                    <ImageWrapper
                                         src={item.image}
                                         alt={item.title}
-                                        className="h-full w-full object-cover"
+                                        className="h-full w-full object-cover image-skeleton"
                                         width={500}
                                         height={500}
                                     />
@@ -168,7 +169,7 @@ export default function Shorts({ data }) {
                                         <VideoIcon />
                                     </div>
 
-                                    {/* SI Logo */}
+                                    {/* Logo */}
                                     <div className="absolute left-2 top-1 opacity-[0.7]">
                                         <Image src="/images/logo.avif" alt="" width={200} height={200} className="w-[45] h-[45]" />
                                     </div>

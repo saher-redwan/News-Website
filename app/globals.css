@@ -321,43 +321,71 @@ nav ul a {
 
 /* for images */
 .image-skeleton {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg,
-      #e7e7e7d7 0%,
-      #f1f1f1bd 45%,
-      #e2e2e2d1 100%);
-}
-
-.image-skeleton::before,
-.image-skeleton::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 45%;
-  transform: translateX(-130%);
-  background: linear-gradient(100deg,
+  background:
+    linear-gradient(100deg,
       transparent 0%,
       rgba(255, 255, 255, 0.15) 25%,
       rgba(255, 255, 255, 0.75) 50%,
       rgba(255, 255, 255, 0.15) 75%,
-      transparent 100%);
-  animation: skeletonShine 2s linear infinite;
+      transparent 100%),
+    linear-gradient(100deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.15) 25%,
+      rgba(255, 255, 255, 0.75) 50%,
+      rgba(255, 255, 255, 0.15) 75%,
+      transparent 100%),
+    linear-gradient(135deg,
+      #e7e7e7d7 0%,
+      #f1f1f1bd 45%,
+      #e2e2e2d1 100%);
+
+  background-size:
+    45% 100%,
+    45% 100%,
+    100% 100%;
+
+  background-repeat: no-repeat;
+
+  animation: imageSkeletonContinuous 1.8s linear infinite;
 }
 
-.image-skeleton::after {
-  animation-delay: 0.55s;
-  opacity: 0.8;
-}
-
-@keyframes skeletonShine {
+@keyframes imageSkeletonContinuous {
   from {
-    transform: translateX(-130%);
+    background-position:
+      -60% 0,
+      -160% 0,
+      center;
   }
 
   to {
-    transform: translateX(260%);
+    background-position:
+      160% 0,
+      -60% 0,
+      center;
   }
+}
+
+.img-err-afterLoadingSrc {
+  background:
+    /* خط X الأول - أغمق قليلاً */
+    linear-gradient(45deg, transparent calc(50% - 4px), rgb(90 90 90 / 6%) calc(50% - 4px), rgba(90, 90, 90, 0.25) calc(50% + 4px), transparent calc(50% + 4px)),
+    /* خط X الثاني - أغمق قليلاً */
+    linear-gradient(-45deg, transparent calc(50% - 4px), rgba(90, 90, 90, 0.126) calc(50% - 4px), rgba(90, 90, 90, 0.25) calc(50% + 4px), transparent calc(50% + 4px)),
+    /* لمعة صغيرة على أعلى الـ X */
+    radial-gradient(circle at 43% 38%, rgba(255, 255, 255, 0.9), transparent 18%),
+    /* دائرة مرتفعة خلف الـ X - شفافة جداً */
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0 30px, rgba(245, 245, 245, 0.05) 31px 42px, rgba(210, 210, 210, 0.02) 43px 55px, transparent 70px),
+    /* ظل ناعم أسفل الدائرة */
+    radial-gradient(ellipse at center 62%, rgba(0, 0, 0, 0.12), transparent 42%),
+    /* إضاءة علوية يسار */
+    radial-gradient(circle at 25% 18%, rgba(255, 255, 255, 0.95), transparent 32%),
+    /* ظل سفلي يمين */
+    radial-gradient(circle at 80% 85%, rgba(0, 0, 0, 0.10), transparent 36%),
+    /* الخلفية الأساسية 3D */
+    linear-gradient(145deg, #f7f7f7 0%, #eeeeee 35%, #dddddd 68%, #cfcfcf 100%);
+  background-size: 50% 50%, 50% 50%, 80px 80px, 145px 145px, 150px 90px, 100% 100%, 100% 100%, 100% 100%;
+  background-position: center, center, center, center, center, center, center, center;
+  background-repeat: no-repeat;
+
+  animation: unset;
 }
